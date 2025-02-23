@@ -1,7 +1,15 @@
 use rocket::tokio;
+use lazy_static::lazy_static;
+
+mod config;
+use config::{Config, get_config};
 
 mod api;
 // mod mdns_resolver;
+
+lazy_static! {
+    static ref CONFIG: Config = get_config();
+}
 
 #[rocket::main]
 async fn main() {

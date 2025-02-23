@@ -1,8 +1,10 @@
 use rocket::{get, routes};
-use rocket::serde::{json::Json, Serialize, Deserialize};
+use rocket::serde::{json::Json, Serialize};
 use local_ip_address::local_ip;
 use enigo::{Enigo, Settings};
 use std::sync::{Arc, Mutex};
+
+use crate::CONFIG;
 
 mod keyevent;
 mod mouseevent;
@@ -36,7 +38,7 @@ async fn index() -> &'static str {
     "AOD (Android on Desktop)"
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
 struct Status {
     device: String,
@@ -46,7 +48,7 @@ struct Status {
 #[get("/status")]
 async fn status() -> Json<Status> {
     Json(Status {
-        device: "DEVICE_NAME".to_string(),
+        device: CONFIG.device_name.clone(),
         ip: local_ip().unwrap().to_string()
     })
 }
