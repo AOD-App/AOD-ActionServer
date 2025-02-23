@@ -1,5 +1,5 @@
 [package]
-name = "actionserver"
+name = "aod-actionserver"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,3 +10,5 @@ libmdns = "0.9.1"
 local-ip-address = "0.6.3"
 notify-rust = "4.11.5"
 rocket = { version = "0.5.1", features = ["json"] }
+serde = "1.0.218"
+toml = "0.8.20"

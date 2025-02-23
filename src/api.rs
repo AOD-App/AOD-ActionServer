@@ -8,10 +8,9 @@ use crate::CONFIG;
 
 mod keyevent;
 mod mouseevent;
-
 mod notification;
-
 mod command;
+mod settings;
 
 pub async fn start() {
 
@@ -25,8 +24,12 @@ pub async fn start() {
             mouseevent::right_click,
             keyevent::left,
             keyevent::right,
+            // keyevent::volume_up,
+            // keyevent::volume_down,
             notification::notify,
             command::execute,
+            settings::settings_get,
+            settings::settings_post,
         ])
         .manage(enigo)
         .launch()

@@ -3,18 +3,6 @@
 version = 4
 
 [[package]]
-name = "actionserver"
-version = "0.1.0"
-dependencies = [
- "enigo",
- "lazy_static",
- "libmdns",
- "local-ip-address",
- "notify-rust",
- "rocket",
-]
-
-[[package]]
 name = "addr2line"
 version = "0.24.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -36,6 +24,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8e60d3430d3a69478ad0993f19238d2df97c507009a52b3c10addcd7f6bcb916"
 dependencies = [
  "memchr",
+]
+
+[[package]]
+name = "aod-actionserver"
+version = "0.1.0"
+dependencies = [
+ "enigo",
+ "lazy_static",
+ "libmdns",
+ "local-ip-address",
+ "notify-rust",
+ "rocket",
+ "serde",
+ "toml",
 ]
 
 [[package]]
